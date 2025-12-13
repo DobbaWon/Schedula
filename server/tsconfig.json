@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",                // modern JS target
+    "module": "NodeNext",              // ES modules for Node
+    "moduleResolution": "NodeNext",    // required when using NodeNext
+    "esModuleInterop": true,           // allow default imports from CJS
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,                     // strict type checking
+    "skipLibCheck": true,               // skip type checking for node_modules
+    "outDir": "dist",                   // compiled JS output
+    "rootDir": "src"                    // your source folder
+  },
+  "include": ["src"]
+}

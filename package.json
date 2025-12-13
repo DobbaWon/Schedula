@@ -1,5 +1,25 @@
 {
+  "name": "schedula",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently -k -n CLIENT,SERVER -c blue,green \"npm run dev --prefix client\" \"npm run dev --prefix server\"",
+    "build": "npm run build --prefix client && npm run build --prefix server",
+    "start": "npm run start --prefix server"
+  },
   "dependencies": {
+    "dotenv": "^17.2.3",
+    "express-session": "^1.18.2",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-microsoft": "^2.1.0",
     "react-router-dom": "^7.10.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/express-session": "^1.18.2",
+    "@types/passport": "^1.0.17",
+    "@types/passport-google-oauth20": "^2.0.17",
+    "concurrently": "^9.2.1"
   }
 }

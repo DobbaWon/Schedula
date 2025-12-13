@@ -1,0 +1,85 @@
+/* Container for centering */
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #eef2f7, #f9fafb);
+  padding: 1rem;
+}
+
+/* Card styling */
+.card {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+/* Titles */
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+/* Buttons */
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  margin-bottom: 1rem;
+}
+
+.button img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Google button */
+.google {
+  background-color: white;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+}
+
+.google:hover {
+  background-color: #f3f4f6;
+  transform: translateY(-1px);
+}
+
+/* Microsoft button */
+.microsoft {
+  background-color: #2563eb;
+  color: white;
+}
+
+.microsoft:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* Footer */
+.footer {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
