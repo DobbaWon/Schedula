@@ -1,6 +1,6 @@
 import passport from "passport";
 import { Strategy as MicrosoftStrategy } from "passport-microsoft";
-import { User } from "../types/user";
+import { User } from "../../types/user";
 
 passport.use(
   new MicrosoftStrategy(
