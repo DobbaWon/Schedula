@@ -1,14 +1,8 @@
 import styles from "./Login.module.css";
 
+import { handleGoogleLogin, handleMicrosoftLogin } from "../../api/auth/auth";
+
 export default function Login() {
-  const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:5000/api/auth/google";
-  };
-
-  const handleMicrosoftLogin = () => {
-    window.location.href = "http://localhost:5000/api/auth/microsoft";
-  };
-
   return (
     <div className={styles.container}>
       <div className={styles.card}>
