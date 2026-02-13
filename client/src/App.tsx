@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 
 import Login from "./pages/login/Login";
-import AdminDashboard from "./pages/dashboard/AdminDashboard";
-import EmployeeDashboard from "./pages/dashboard/EmployeeDashboard";
-import ManagerDashboard from "./pages/dashboard/ManagerDashboard";
+import AdminDashboard from "./pages/dashboard/AdminDashboard/AdminDashboard";
+import EmployeeDashboard from "./pages/dashboard/EmployeeDashboard/EmployeeDashboard";
+import ManagerDashboard from "./pages/dashboard/ManagerDashboard/ManagerDashboard";
 import Holiday from "./pages/holiday/Holiday";
 import TeamDepartmentManagement from "./pages/management/TeamDepartmentManagement";
 import OrganisationSettings from "./pages/organisation/OrganisationSettings";

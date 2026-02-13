@@ -41,6 +41,27 @@ export async function getOrganisationById(organisationId: number): Promise<Organ
   return result.recordset[0] ?? null;
 }
 
+export async function getOrganisationByName(organisationName: string): Promise<Organisation | null> {
+  const pool = await poolPromise;
+
+  const result = await pool.request()
+    .input('organisationName', sql.Int, organisationName)
+    .query(`
+      SELECT
+        OrganisationID           AS organisationId,
+        Name                     AS name,
+        WorkArrangements         AS workArrangements,
+        WorkTimeControlPolicy    AS workTimeControlPolicy,
+        CoreHoursStart           AS coreHoursStart,
+        CoreHoursEnd             AS coreHoursEnd,
+        MinimumOfficeDays        AS minimumOfficeDays
+      FROM Organisations
+      WHERE Name = @organisationName
+    `);
+
+  return result.recordset[0] ?? null;
+}
+
 export async function createOrganisation(org: Omit<Organisation, 'organisationId'>): Promise<Organisation> {
   const pool = await poolPromise;
 

@@ -5,6 +5,7 @@ const router = Router();
 
 router.get('/', controller.getOrganisations);
 router.get('/:id', controller.getOrganisation);
+router.get('/name/:name', controller.getOrganisationByName)
 router.post('/', controller.createOrganisation);
 router.put('/:id', controller.updateOrganisation);
 router.delete('/:id', controller.deleteOrganisation);

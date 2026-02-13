@@ -18,6 +18,18 @@ export async function getOrganisation(req: Request, res: Response) {
   res.json(org);
 }
 
+export async function getOrganisationByName(req: Request, res: Response) {
+  const organisationName = String(req.params.name);
+  const org = await organisationService.getOrganisationByName(organisationName);
+
+  if (!org) {
+    res.status(404).json({ message: 'Organisation not found' });
+    return;
+  }
+
+  res.json(org);
+}
+
 export async function createOrganisation(req: Request, res: Response) {
   const org = await organisationService.createOrganisation(req.body);
   res.status(201).json(org);

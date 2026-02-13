@@ -12,7 +12,7 @@ class AuthService {
       case "manager":
         return "/manager";
       default:
-        return "/employee";
+        return "/admin"; // Todo: Change to /employee
     }
   }
 }
