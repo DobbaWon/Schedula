@@ -72,6 +72,7 @@ export interface LeaveRequest {
 
 export interface Location {
   locationId: number;
+  organisationId: number;
   name: string;
   capacity: number;
 }

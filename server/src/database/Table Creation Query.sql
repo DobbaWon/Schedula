@@ -81,6 +81,7 @@ CREATE TABLE LeaveRequests (
 
 CREATE TABLE Locations (
     LocationID INT IDENTITY PRIMARY KEY,
+    OrganisationID INT NOT NULL
     Name NVARCHAR(255) NOT NULL,
     Capacity INT NOT NULL
 );
@@ -141,3 +142,7 @@ FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID);
 ALTER TABLE Schedules
 ADD CONSTRAINT FK_Schedules_Locations
 FOREIGN KEY (LocationID) REFERENCES Locations(LocationID);
+
+ALTER TABLE Locations
+ADD CONSTRAINT FK_Locations_Organisations
+FOREIGN KEY (OrganisationID) REFERENCES Organisations(OrganisationID);
