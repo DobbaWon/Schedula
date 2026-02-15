@@ -100,30 +100,31 @@ export async function createOrganisation(org: Omit<Organisation, 'organisationId
 
 export async function updateOrganisation(
   organisationId: number,
-  org: Partial<Omit<Organisation, 'organisationId'>>
+  org: Omit<Organisation, 'organisationId'>
 ): Promise<void> {
   const pool = await poolPromise;
 
   await pool.request()
     .input('organisationId', sql.Int, organisationId)
-    .input('name', sql.NVarChar, org.name ?? null)
-    .input('workArrangements', sql.NVarChar, org.workArrangements ?? null)
-    .input('workTimeControlPolicy', sql.NVarChar, org.workTimeControlPolicy ?? null)
-    .input('coreHoursStart', sql.Time, org.coreHoursStart ?? null)
-    .input('coreHoursEnd', sql.Time, org.coreHoursEnd ?? null)
-    .input('minimumOfficeDays', sql.Int, org.minimumOfficeDays ?? null)
+    .input('name', sql.NVarChar, org.name)
+    .input('workArrangements', sql.NVarChar, org.workArrangements)
+    .input('workTimeControlPolicy', sql.NVarChar, org.workTimeControlPolicy)
+    .input('coreHoursStart', sql.Time, org.coreHoursStart) // pass string
+    .input('coreHoursEnd', sql.Time, org.coreHoursEnd)     // pass string
+    .input('minimumOfficeDays', sql.Int, org.minimumOfficeDays)
     .query(`
       UPDATE Organisations
       SET
-        Name = COALESCE(@name, Name),
-        WorkArrangements = COALESCE(@workArrangements, WorkArrangements),
-        WorkTimeControlPolicy = COALESCE(@workTimeControlPolicy, WorkTimeControlPolicy),
+        Name = @name,
+        WorkArrangements = @workArrangements,
+        WorkTimeControlPolicy = @workTimeControlPolicy,
         CoreHoursStart = @coreHoursStart,
         CoreHoursEnd = @coreHoursEnd,
         MinimumOfficeDays = @minimumOfficeDays
       WHERE OrganisationID = @organisationId
     `);
 }
+
 
 export async function deleteOrganisation(organisationId: number): Promise<void> {
   const pool = await poolPromise;

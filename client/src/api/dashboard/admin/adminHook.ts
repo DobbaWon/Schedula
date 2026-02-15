@@ -10,7 +10,7 @@ export function adminHook() {
     : "/organisations/1";
 
     try {
-      const organisation : Organisation = await apiRequest(path, "GET")
+      const organisation: Organisation | null = await apiRequest(path, "GET")
 
       return organisation
     } catch (err) {
@@ -18,8 +18,22 @@ export function adminHook() {
       return null;
     }
   }
+
+  async function updateOrganisation(
+    organisationID: number,
+    updatedOrg: Omit<Organisation, "organisationId">
+  ): Promise<boolean> {
+    try {
+      await apiRequest(`/organisations/${organisationID}`, "PUT", updatedOrg);
+      return true;
+    } catch (err) {
+      console.error("Failed to update organisation: " + err);
+      return false;
+    }
+  }
     
   return({
-    getOrganisation,  
+    getOrganisation,
+    updateOrganisation,  
   })
 }

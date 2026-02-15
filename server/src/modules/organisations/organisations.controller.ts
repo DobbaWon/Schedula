@@ -37,8 +37,13 @@ export async function createOrganisation(req: Request, res: Response) {
 
 export async function updateOrganisation(req: Request, res: Response) {
   const organisationId = Number(req.params.id);
-  await organisationService.updateOrganisation(organisationId, req.body);
-  res.status(204).send();
+  try {
+    await organisationService.updateOrganisation(organisationId, req.body);
+    res.status(204).send();
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Failed to update organisation' });
+  }
 }
 
 export async function deleteOrganisation(req: Request, res: Response) {
